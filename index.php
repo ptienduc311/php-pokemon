@@ -1,5 +1,4 @@
 <?php
-//require 'db/connect.php';
 #Kết nối database
 require 'db/config.php';
 require 'db/database.php';
@@ -12,8 +11,8 @@ require 'lib/url.php';
 ?>
 <?php
 db_connect($config);
-$mod = !empty($_GET['mod']) ? $_GET['mod'] : 'home';
-$act = !empty($_GET['act']) ? $_GET['act'] : 'main';
+$mod = !empty($_GET['mod']) ? $_GET['mod'] : 'register';
+$act = !empty($_GET['act']) ? $_GET['act'] : 'index';
 $path = "modules/$mod/{$act}.php";
 
 if (file_exists($path)) {
