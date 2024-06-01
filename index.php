@@ -1,4 +1,5 @@
 <?php
+session_start();
 #Kết nối database
 require 'db/config.php';
 require 'db/database.php';

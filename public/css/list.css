@@ -1,0 +1,13 @@
+a.detail-user {
+  padding: 10px;
+  background: red;
+  border-radius: 10px;
+}
+
+a.detail-user:hover {
+  background: #e50d0d;
+}
+
+a.detail-user i {
+  color: #fff;
+}
