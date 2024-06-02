@@ -42,10 +42,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <p>Inscrivez-vous pour commencer</p>
         <form method="POST">
             <label for="username">NOM DU COMPTE</label>
-            <input type="text" name="username" id="username" value="<?php if(isset($_POST['username'])) {echo $username;} ?>" required>
+            <input type="text" name="username" id="username" value="<?php if(isset($username)) {echo set_value('username');} ?>" required>
 
             <label for="email">EMAIL</label>
-            <input type="email" id="email" name="email" placeholder="hello@reallygreatsite.com" value="<?php if(isset($_POST['email'])){ echo $email; } ?>" required>
+            <input type="email" id="email" name="email" placeholder="hello@reallygreatsite.com" value="<?php if(isset($email)) {echo set_value('email');} ?>" required>
             <?php
             if (isset($error['email'])) {
                 echo '<p class="text-danger">' . $error['email'] .'</p>';

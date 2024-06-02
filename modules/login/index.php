@@ -35,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <p>Connectez-vous pour continuer</p>
         <form method="POST">
             <label for="email">EMAIL</label>
-            <input type="email" id="email" name="email" placeholder="hello@reallygreatsite.com" required>
+            <input type="email" id="email" name="email" placeholder="hello@reallygreatsite.com" value="<?php if(isset($email)) {echo set_value('email');} ?>" required>
             <?php
             if (isset($error['email'])) {
                 echo '<p class="text-danger">' . $error['email'] .'</p>';
