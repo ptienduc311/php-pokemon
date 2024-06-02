@@ -257,25 +257,25 @@ a.bell {
   display: none;
 }
 
-.detail-notify{
+.detail-notify {
   border-bottom: 1px solid #918888;
 }
 
-.detail-notify p{
+.detail-notify p {
   margin-bottom: 0;
 }
 
-.detail-notify .font-bold{
+.detail-notify .font-bold {
   font-weight: bold;
 }
 
-.detail-notify .title-notify{
+.detail-notify .title-notify {
   font-size: 18px;
   font-weight: bold;
   padding: 15px 0 5px 0;
 }
 
-img.img-card{
+img.img-card {
   width: 100px;
   height: auto;
 }
@@ -287,7 +287,8 @@ img.img-card{
   background-color: #f8f9fa;
 }
 
-.custom-select, .custom-input {
+.custom-select,
+.custom-input {
   margin-bottom: 10px;
   width: 100%;
 }
@@ -298,17 +299,65 @@ img.img-card{
 
 @media (min-width: 768px) {
   .custom-container > div {
-      display: flex;
-      align-items: center;
+    display: flex;
+    align-items: center;
   }
 
-  .custom-select, .custom-input {
-      margin-bottom: 0;
-      margin-right: 10px;
-      width: auto;
+  .custom-select,
+  .custom-input {
+    margin-bottom: 0;
+    margin-right: 10px;
+    width: auto;
   }
 
   .custom-button {
-      margin-top: 0;
+    margin-top: 0;
   }
+}
+
+.count-select {
+  position: fixed;
+  right: 0px;
+  bottom: 0px;
+  right: 0;
+  z-index: 1030;
+  padding: 0 15px 15px 0;
+}
+
+.count-select span{
+  background: #0140e3;
+  border-radius: 20px;
+    padding: 5px 10px;
+  color: #fff;
+}
+
+.checkboxItem {
+  width: 20px;
+  height: 20px;
+}
+
+a.icon-link{
+  text-decoration: none;
+}
+
+.icon-bullseye, .icon-eye {
+  transition: opacity 0.5s ease;
+  font-size: 18px;
+}
+
+.icon-bullseye{
+  color: #ff0000;
+}
+.icon-eye {
+  opacity: 0;
+  position: absolute;
+  color: #d80b0b;
+}
+
+.icon-link:hover .icon-eye {
+  opacity: 1;
+}
+
+.icon-link:hover .icon-bullseye {
+  opacity: 0;
 }

@@ -31,40 +31,6 @@ if (isset($_POST['btnSubmit'])) {
         $error['card'] = "Veuillez choisir les 20 cartes";
     }
 }
-
-if (isset($_POST['searchName'])) {
-    $namePokemon = $_POST['namePokemon'];
-    if (empty($namePokemon)) {
-        $sql_card = "SELECT * FROM `card`";
-    } else {
-        $sql_card = "SELECT * FROM `card` WHERE `name` LIKE '%$namePokemon%' ";
-    }
-    $card = db_fetch_array($sql_card);
-    foreach ($card as &$item) {
-        $energy_id = $item['energy_id'];
-        $sql_energy = "SELECT `name` FROM `energy` WHERE `id` = $energy_id";
-        $energy_name = db_fetch_row($sql_energy);
-        $item['energy_name'] = $energy_name;
-    }
-    unset($item);
-}
-
-if (isset($_POST['filterEnergy'])) {
-    $energyName = $_POST['energy-name'];
-    if (empty($energyName)) {
-        $sql_card = "SELECT * FROM `card`";
-    } else {
-        $sql_card = "SELECT * FROM `card` WHERE `energy_id` = $energyName";
-    }
-    $card = db_fetch_array($sql_card);
-    foreach ($card as &$item) {
-        $energy_id = $item['energy_id'];
-        $sql_energy = "SELECT `name` FROM `energy` WHERE `id` = $energy_id";
-        $energy_name = db_fetch_row($sql_energy);
-        $item['energy_name'] = $energy_name;
-    }
-    unset($item);
-}
 ?>
 
 <!DOCTYPE html>
@@ -82,25 +48,6 @@ if (isset($_POST['filterEnergy'])) {
     <div class="container">
         <h1>Choisissez 20 cartes pour votre collection</h1>
         <form method="post">
-            <div class="d-flex justify-content-between align-items-center my-4 custom-container">
-                <div>
-                    <select name="energy-name" id="select-energy" class="form-control custom-select">
-                        <option value="">Défaut</option>
-                        <?php
-                        foreach ($energy as $item) {
-                        ?>
-                            <option value="<?php echo $item['id'] ?>"><?php echo $item['name'] ?></option>
-                        <?php
-                        }
-                        ?>
-                    </select>
-                    <button name="filterEnergy" class="btn btn-primary custom-button">Filtre</button>
-                </div>
-                <div>
-                    <input type="text" name="namePokemon" id="" class="form-control custom-input">
-                    <button name="searchName" class="btn btn-danger custom-button">Rechercher</button>
-                </div>
-            </div>
             <?php
             if (isset($error['card'])) {
                 echo '<div class="alert alert-danger" role="alert">' . $error['card'] . '</div>';
@@ -109,7 +56,7 @@ if (isset($_POST['filterEnergy'])) {
             <table>
                 <thead>
                     <tr>
-                        <th>Choisir la carte</th>
+                        <th width="100">Choisir la carte</th>
                         <th>Nom</th>
                         <th>Image</th>
                         <th>Énergie</th>
@@ -120,9 +67,9 @@ if (isset($_POST['filterEnergy'])) {
                     foreach ($card as $item) {
                     ?>
                         <tr>
-                            <td><input type="checkbox" name="selected_cards[]" value="<?php echo $item['id']; ?>"></td>
+                            <td><input type="checkbox" name="selected_cards[]" value="<?php echo $item['id']; ?>" class="checkboxItem"></td>
                             <td><?php echo $item['name']; ?></td>
-                            <td><img src="<?php echo $item['image']; ?>" alt="Alakazam" width="50"></td>
+                            <td><img src="<?php echo $item['image']; ?>" alt="<?php echo $item['name']; ?>" class="imageCard" width="50"></td>
                             <td class="energy-<?php echo $item['energy_id']; ?>"><?php echo $item['energy_name']['name']; ?></td>
                         </tr>
                     <?php
@@ -135,7 +82,7 @@ if (isset($_POST['filterEnergy'])) {
             </div>
         </form>
     </div>
-
+    <div class="count-select d-flex justify-content-end align-items-end d-none"><span>3</span></div>
     <script src="public/js/select.js"></script>
 </body>
 

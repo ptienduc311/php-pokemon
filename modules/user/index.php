@@ -100,7 +100,8 @@ if (isset($_POST['btn_ignore'])) {
 
                 <div class="username"><b>Nom d'utilisateur:</b> <?php echo $user['username']; ?></div>
                 <div class="email"><b>Email:</b> <?php echo $user['email']; ?></div>
-                <a href="?mod=user&act=list" class="search-user">Rechercher des utilisateurs</a>
+                <a href="?mod=user&act=listUser" class="search-user">Rechercher des utilisateurs</a>
+                <a href="?mod=user&act=listCard" class="search-user">Liste des cartes</a>
                 <a href="?mod=user&act=logout" class="logout">Logout</a>
             </div>
             <div class="info-card">
