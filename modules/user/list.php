@@ -17,31 +17,33 @@ $users = db_fetch_array($sql);
 </head>
 
 <body>
-    <h1 class="text-center">Liste d'utilisateur</h1>
-    <table class="table table-hover">
-        <thead>
-            <tr>
-                <th scope="col">Nom d'utilisateur</th>
-                <th scope="col">Page personnelle</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php
-            foreach ($users as $user) {
-            ?>
+    <div class="main-container">
+        <h1 class="text-center">Liste d'utilisateur</h1>
+        <table class="table table-hover">
+            <thead>
                 <tr>
-                    <th scope="row"><?php echo $user['username']; ?></th>
-                    <td>
-                        <a href="?mod=user&act=detail&id=<?php echo $user['id']; ?>" class="detail-user">
-                            <i class="fa-regular fa-address-card"></i>
-                        </a>
-                    </td>
+                    <th scope="col">Nom d'utilisateur</th>
+                    <th scope="col">Page personnelle</th>
                 </tr>
-            <?php
-            }
-            ?>
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                <?php
+                foreach ($users as $user) {
+                ?>
+                    <tr>
+                        <th scope="row"><?php echo $user['username']; ?></th>
+                        <td>
+                            <a href="?mod=user&act=detail&id=<?php echo $user['id']; ?>" class="detail-user">
+                                <i class="fa-regular fa-address-card"></i>
+                            </a>
+                        </td>
+                    </tr>
+                <?php
+                }
+                ?>
+            </tbody>
+        </table>
+    </div>
 </body>
 
 </html>

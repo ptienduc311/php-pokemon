@@ -32,6 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registre</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="public/css/register.css">
 </head>
 
@@ -45,9 +46,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             <label for="email">EMAIL</label>
             <input type="email" id="email" name="email" placeholder="hello@reallygreatsite.com" required>
+            <?php
+            if (isset($error['email'])) {
+                echo '<p class="text-danger">' . $error['email'] .'</p>';
+            }
+            ?>
 
             <label for="password">MOT DE PASSE</label>
             <input type="password" id="password" name="password" required>
+            <?php
+            if (isset($error['password'])) {
+                echo '<p class="text-danger">' . $error['password'] .'</p>';
+            }
+            ?>
 
             <label for="confirm-password">CONFIRMEZ LE MOT DE PASSE</label>
             <input type="password" id="confirm-password" name="confirm-password" required>
