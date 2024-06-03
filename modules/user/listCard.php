@@ -1,4 +1,9 @@
 <?php
+if (!isset($_SESSION['user_id'])) {
+    redirect('?mod=login&act=index');
+    exit();
+}
+
 $sql_card = "SELECT * FROM `card`";
 $card = db_fetch_array($sql_card);
 $sql_energy = "SELECT * FROM `energy`";

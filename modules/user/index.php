@@ -1,4 +1,9 @@
 <?php
+if (!isset($_SESSION['user_id'])) {
+    redirect('?mod=login&act=index');
+    exit();
+}
+
 $user_id = $_SESSION['user_id'];
 $sql_count_bell = "SELECT * FROM `card_exchange` WHERE `toUser` = $user_id OR `fromUser` = $user_id";
 $sql_count_bell_other = "SELECT * FROM `card_exchange` WHERE `fromUser` = $user_id AND `status` != 'waiting'";

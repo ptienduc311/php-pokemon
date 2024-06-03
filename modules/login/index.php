@@ -35,21 +35,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <p>Connectez-vous pour continuer</p>
         <form method="POST">
             <label for="email">EMAIL</label>
-            <input type="email" id="email" name="email" placeholder="hello@reallygreatsite.com" value="<?php if(isset($email)) {echo set_value('email');} ?>" required>
+            <input type="email" id="email" name="email" placeholder="hello@reallygreatsite.com" value="<?php if (isset($email)) {
+                                                                                                            echo set_value('email');
+                                                                                                        } ?>" required>
             <?php
             if (isset($error['email'])) {
-                echo '<p class="text-danger">' . $error['email'] .'</p>';
+                echo '<p class="text-danger">' . $error['email'] . '</p>';
             }
             ?>
-            
+
             <label for="password">MOT DE PASSE</label>
             <input type="password" id="password" name="password" required>
             <?php
             if (isset($error['password'])) {
-                echo '<p class="text-danger">' . $error['password'] .'</p>';
+                echo '<p class="text-danger">' . $error['password'] . '</p>';
             }
             ?>
-
+            <div class="d-flex justify-content-center">
+                <p>Vous n'avez pas de compte?</p>
+                <a href="?mod=register&action=index" class="register">Registre</a>
+            </div>
             <button type="submit">Se connecter</button>
         </form>
     </div>

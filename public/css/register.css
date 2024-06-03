@@ -19,7 +19,7 @@ h1 {
 }
 
 p {
-  margin-bottom: 1.5em;
+  margin-bottom: 1em;
   color: #666;
 }
 
@@ -37,7 +37,7 @@ label {
 
 input {
   padding: 10px;
-  margin-bottom: 1.5em;
+  margin-bottom: 15px;
   border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 1em;
@@ -55,4 +55,15 @@ button {
 
 button:hover {
   background-color: #333;
+}
+
+a.register {
+  text-decoration: none;
+  color: #006cf2;
+  padding: 0 10px 10px 10px;
+}
+
+a.register:hover {
+  text-decoration: underline;
+  color: #0560cf;
 }

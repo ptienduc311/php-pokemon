@@ -62,7 +62,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             <label for="confirm-password">CONFIRMEZ LE MOT DE PASSE</label>
             <input type="password" id="confirm-password" name="confirm-password" required>
-
+            <div class="d-flex justify-content-center">
+                <p>Avez-vous déjà un compte?</p>
+                <a href="?mod=login&action=index" class="register">Se connecter</a>
+            </div>
             <button type="submit">Registre</button>
         </form>
     </div>

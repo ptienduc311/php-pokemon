@@ -1,4 +1,9 @@
 <?php
+if (!isset($_SESSION['user_id'])) {
+    redirect('?mod=login&act=index');
+    exit();
+}
+
 if (isset($_GET['cardId'])) {
     $cardId = $_GET['cardId'];
     $user_id = $_SESSION['user_id'];
